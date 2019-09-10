@@ -1,6 +1,7 @@
 import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {Observable} from 'rxjs';
+import {LoginResultModel} from './model/LoginResultModel';
 
 
 @Injectable({
@@ -13,8 +14,8 @@ export class ApiService {
   }
 
   login(email: string, password: string): Observable<LoginResultModel>{
-    return this.http.post<LoginResultModel>('https://reqres.in/api/login', {
-      email: email,
+    return this.http.post<LoginResultModel>("http://localhost/logistic_v1/api/users/token.json", {
+     username: email,
       password: password
     });
   }
